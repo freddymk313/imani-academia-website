@@ -28,18 +28,18 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "glass-nav shadow-sm" : "bg-transparent"
+      className={`fixed top-0 w-full z-50 py-2 transition-all duration-300 ${
+        isScrolled ? "bg-background shadow-sm" : "bg-background"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="flex items-center justify-between h-18 py-4">
           <Link href="/" className="flex items-center gap-2.5 group">
             <Image
-              src="/logo/logo.png"
+              src="/logo/logo-white.png"
               alt="Imani Academia"
               width={180}
-              height={50}
+              height={60}
               priority
               className="h-10 w-auto object-contain"
             />
