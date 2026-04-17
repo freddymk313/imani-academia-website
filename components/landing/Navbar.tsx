@@ -102,30 +102,23 @@ export default function Navbar() {
         <div className="md:hidden glass-nav *border-t border-[#c0c7d2]/30 animate-fade-in">
           <div className="max-w-7xl mx-auto px-5 py-4 flex flex-col gap-1">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 onClick={handleLinkClick}
-                className="text-[#1c1b1b] font-medium py-3 px-4 rounded-xl hover:bg-[#f6f3f2] transition-colors text-base"
+                className="text-[#1c1b1b] font-semibold text-center py-3 px-4 rounded-xl hover:bg-background transition-colors text-base"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
             <div className="pt-3 pb-2 flex flex-col gap-2">
-              <a
-                href="/dashboard"
-                onClick={handleLinkClick}
-                className="text-[#404751] font-medium py-3 px-4 rounded-xl hover:bg-[#f6f3f2] transition-colors text-base text-center"
-              >
-                Dashboard
-              </a>
-              <a
+              <Link
                 href="/register"
                 onClick={handleLinkClick}
-                className="editorial-gradient text-white py-3.5 rounded-full text-base font-semibold text-center hover:brightness-105 transition-all"
+                className="bg-primary text-white py-3 rounded-full text-sm font-semibold text-center hover:brightness-105 transition-all"
               >
                 S&apos;inscrire maintenant
-              </a>
+              </Link>
             </div>
           </div>
         </div>
