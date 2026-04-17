@@ -33,7 +33,7 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
-        <div className="flex md:hidden items-center justify-between h-18 py-4">
+        <div className="flex items-center justify-between h-18 py-4">
           <Link href="/" className="md:hidden flex items-center gap-2.5 group">
             <Image
               src="/logo/logo-mobile.png"
@@ -61,7 +61,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-[#404751] hover:text-primary *text-sm font-medium transition-colors duration-200 relative group"
+                className="text-[#404751] hover:text-primary font-medium transition-colors duration-200 relative group"
               >
                 {link.label}
                 {/* <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-[#00609a] rounded-full transition-all duration-300 group-hover:w-full" /> */}
