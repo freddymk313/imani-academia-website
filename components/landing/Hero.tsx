@@ -1,169 +1,100 @@
-'use client';
+import { ArrowRight, Play } from 'lucide-react';
 
-import { motion } from 'framer-motion';
-import { ArrowRight, Play, Sparkles } from 'lucide-react';
+const stats = [
+  { value: '2 000+', label: 'Étudiants formés' },
+  { value: '95%', label: 'Taux de satisfaction' },
+  { value: '8 ans', label: "D'expertise" },
+];
 
 export default function Hero() {
-  // Variantes pour les animations d'entrée
-  const fadeInUp = {
-    initial: { opacity: 0, y: 30 },
-    animate: { opacity: 1, y: 0 },
-  };
-
-  const staggerContainer = {
-    animate: { transition: { staggerChildren: 0.1 } },
-  };
-
   return (
-    <section 
-      className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-background"
-      >
-      {/* Éléments de décor en arrière-plan (No-Line Principle) */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -z-10 translate-x-1/2 -translate-y-1/4" />
-      <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-secondary-container/10 rounded-full blur-[80px] -z-10 -translate-x-1/2" />
+    <section className="pt-28 pb-16 sm:pt-36 sm:pb-24 px-4 sm:px-8 overflow-hidden bg-[#fcf9f8]">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="space-y-7">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#cfe5ff] text-[#004a78] text-xs font-bold tracking-wider uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#00609a] animate-pulse" />
+              Centre de Formation Premium
+            </div>
 
-      <div className="max-w-screen-2xl mx-auto px-6 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#001d34] leading-[1.08] tracking-tight">
+              Maîtrisez{' '}
+              <span className="text-[#00609a]">l&apos;Anglais</span>{' '}
+              &amp;{' '}
+              <span className="text-[#00609a]">l&apos;Informatique</span>{' '}
+              avec{' '}
+              <span className="italic font-light">Imani Academia</span>
+            </h1>
 
-          {/* COLONNE TEXTE */}
-          <motion.div 
-            variants={staggerContainer}
-            initial="initial"
-            animate="animate"
-            className="flex flex-col space-y-8"
-          >
-            <motion.div variants={fadeInUp}>
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-low border border-border/50 text-[11px] font-black uppercase tracking-[0.2em] text-primary">
-                <Sparkles size={14} />
-                Centre de formation d'élite
-              </span>
-            </motion.div>
+            <p className="text-base sm:text-lg text-[#404751] max-w-xl leading-relaxed">
+              Développez des compétences de classe mondiale grâce à nos programmes certifiants conçus par des experts. Rejoignez une communauté d&apos;apprenants passionnés.
+            </p>
 
-            <motion.h1 
-              variants={fadeInUp}
-              className="text-5xl lg:text-8xl font-black text-deep-core leading-[0.95] tracking-tighter"
-            >
-              Maîtrisez l' <br />
-              <span className="text-primary italic font-light">Anglais</span> & <br />
-              <span className="relative">
-                l'Informatique
-                <svg className="absolute -bottom-2 left-0 w-full h-3 text-secondary-container/40 -z-10" viewBox="0 0 100 10" preserveAspectRatio="none">
-                  <path d="M0 5 Q 25 0, 50 5 T 100 5" stroke="currentColor" strokeWidth="8" fill="transparent" strokeLinecap="round" />
-                </svg>
-              </span>
-            </motion.h1>
-
-            <motion.p 
-              variants={fadeInUp}
-              className="max-w-xl text-lg lg:text-xl text-on-surface-variant leading-relaxed"
-            >
-              Développez des compétences de classe mondiale grâce à nos programmes certifiants conçus par des experts du secteur. Rejoignez une communauté d'apprenants passionnés.
-            </motion.p>
-
-            <motion.div variants={fadeInUp} className="flex flex-wrap gap-4 pt-4">
-              <button className="editorial-gradient text-white px-10 py-5 rounded-full text-sm font-black uppercase tracking-widest signature-shadow hover:scale-105 active:scale-95 transition-all flex items-center gap-3">
+            <div className="flex flex-col sm:flex-row gap-3 pt-2">
+              <a
+                href="#tarifs"
+                className="editorial-gradient text-white px-8 py-4 rounded-full font-bold text-base signature-shadow hover:brightness-105 active:scale-95 transition-all duration-200 text-center"
+              >
                 Commencer maintenant
-                <ArrowRight size={18} />
-              </button>
+              </a>
+              <a
+                href="#formations"
+                className="flex items-center justify-center gap-2.5 bg-[#f6f3f2] text-[#1c1b1b] px-8 py-4 rounded-full font-semibold text-base hover:bg-[#eae7e7] transition-colors"
+              >
+                <Play className="w-4 h-4 text-[#00609a] fill-[#00609a]" />
+                Découvrir les formations
+              </a>
+            </div>
 
-              <button className="px-10 py-5 rounded-full text-sm font-black uppercase tracking-widest text-deep-core bg-white border border-border hover:bg-surface-low transition-all flex items-center gap-3 shadow-sm">
-                <div className="w-8 h-8 rounded-full bg-surface-low flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-                  <Play size={14} fill="currentColor" />
+            <div className="flex flex-wrap gap-6 pt-4">
+              {stats.map((stat) => (
+                <div key={stat.label}>
+                  <div className="text-2xl font-bold text-[#00609a]">{stat.value}</div>
+                  <div className="text-xs text-[#404751] font-medium mt-0.5">{stat.label}</div>
                 </div>
-                En savoir plus
-              </button>
-            </motion.div>
-
-            {/* Preuve Sociale / Stats subtiles */}
-            <motion.div variants={fadeInUp} className="flex items-center gap-8 pt-8 border-t border-border/50">
-              <div>
-                <p className="text-2xl font-black text-deep-core">2000+</p>
-                <p className="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant opacity-60">Étudiants formés</p>
-              </div>
-              <div className="w-px h-10 bg-border/50" />
-              <div>
-                <p className="text-2xl font-black text-deep-core">95%</p>
-                <p className="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant opacity-60">Taux de réussite</p>
-              </div>
-            </motion.div>
-          </motion.div>
-
-          {/* COLONNE VISUELLE - Collage Moderne */}
-          <div className="relative grid grid-cols-2 gap-4 lg:gap-6">
-            {/* Image 1 - Grand Angle (Haut Gauche) */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
-              animate={{ opacity: 1, scale: 1, rotate: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="aspect-[4/5] rounded-tr-[80px] rounded-bl-[40px] rounded-tl-2xl rounded-br-2xl overflow-hidden shadow-2xl"
-            >
-              <img 
-                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80" 
-                alt="Étudiants collaborant"
-                className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
-              />
-            </motion.div>
-
-            {/* Image 2 - Portrait Cercle (Haut Droite) */}
-            <motion.div 
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="mt-12 aspect-square rounded-full overflow-hidden border-[12px] border-surface-lowest shadow-xl"
-            >
-              <img 
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80" 
-                alt="Formatrice experte"
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
-
-            {/* Image 3 - Détail Tech Cercle (Bas Gauche) */}
-            <motion.div 
-              initial={{ opacity: 0, x: -40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="aspect-square rounded-full overflow-hidden border-[8px] border-surface-low shadow-lg"
-            >
-              <img 
-                src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80" 
-                alt="Interface numérique"
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
-
-            {/* Image 4 - Focus Pro (Bas Droite) */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.8, rotate: 5 }}
-              animate={{ opacity: 1, scale: 1, rotate: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="-mt-12 aspect-[4/5] rounded-tl-[80px] rounded-br-[40px] rounded-tr-2xl rounded-bl-2xl overflow-hidden shadow-2xl"
-            >
-              <img 
-                src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80" 
-                alt="Réunion de projet"
-                className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
-              />
-            </motion.div>
-
-            {/* Badge flottant d'accréditation */}
-            <motion.div 
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white p-4 rounded-2xl shadow-xl z-20 hidden md:block"
-            >
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                  {/* <GraduationCap size={20} /> */}
-                </div>
-                <div>
-                  <p className="text-xs font-black uppercase tracking-widest text-deep-core">Certifié par l'État</p>
-                  <p className="text-[10px] text-on-surface-variant font-medium leading-none">Standard International</p>
-                </div>
-              </div>
-            </motion.div>
+              ))}
+            </div>
           </div>
 
+          <div className="relative grid grid-cols-2 gap-4">
+            <div className="space-y-4">
+              <img
+                src="https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="Étudiants en formation"
+                className="w-full aspect-[4/5] object-cover rounded-[2rem_5rem_2rem_2rem] signature-shadow"
+              />
+              <img
+                src="https://images.pexels.com/photos/4144923/pexels-photo-4144923.jpeg?auto=compress&cs=tinysrgb&w=400"
+                alt="Formation informatique"
+                className="w-full aspect-square object-cover rounded-full signature-shadow"
+              />
+            </div>
+            <div className="space-y-4 pt-12">
+              <img
+                src="https://images.pexels.com/photos/3807517/pexels-photo-3807517.jpeg?auto=compress&cs=tinysrgb&w=400"
+                alt="Apprenante concentrée"
+                className="w-full aspect-square object-cover rounded-full signature-shadow"
+              />
+              <img
+                src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="Équipe professionnelle"
+                className="w-full aspect-[4/5] object-cover rounded-[5rem_2rem_2rem_2rem] signature-shadow"
+              />
+            </div>
+
+            <div className="absolute -z-10 bottom-0 right-0 w-72 h-72 bg-[#83c1fd]/15 rounded-full blur-3xl" />
+            <div className="absolute -z-10 top-8 left-8 w-40 h-40 bg-[#cfe5ff]/30 rounded-full blur-2xl" />
+
+            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-white rounded-2xl px-5 py-3 signature-shadow flex items-center gap-3 min-w-[200px]">
+              <div className="w-10 h-10 rounded-xl editorial-gradient flex items-center justify-center flex-shrink-0">
+                <ArrowRight className="w-4 h-4 text-white" />
+              </div>
+              <div>
+                <div className="text-xs font-bold text-[#1c1b1b]">Prochain cours</div>
+                <div className="text-xs text-[#00609a] font-semibold">Lundi 09h00</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

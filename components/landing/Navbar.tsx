@@ -32,12 +32,11 @@ export default function Navbar() {
         isScrolled ? "glass-nav shadow-sm" : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-5 sm:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="flex items-center justify-between h-18 py-4">
           <Link href="/" className="flex items-center gap-2.5 group">
-            Logo
             <Image
-              src="/logo/logo-white.png"
+              src="/logo/logo.png"
               alt="Imani Academia"
               width={180}
               height={50}
