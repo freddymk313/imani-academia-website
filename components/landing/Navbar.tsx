@@ -32,7 +32,7 @@ export default function Navbar() {
         isScrolled ? "bg-background shadow-sm" : "bg-background"
       }`}
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto px-4 md:px-0">
         <div className="flex items-center justify-between h-18 py-4">
           <Link href="/" className="md:hidden flex items-center gap-2.5 group">
             <Image

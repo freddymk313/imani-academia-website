@@ -18,7 +18,11 @@ export default function Hero() {
               Centre de Formation
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#001d34] leading-[1.08] tracking-tight">
+            <h1 
+            // className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#001d34] leading-[1.08] tracking-tight"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#001d34] leading-[1.05] tracking-tight"
+            
+            >
               Maîtrisez{' '}
               <span className="text-[#00609a]">l&apos;Anglais</span>{' '}
               &amp;{' '}
