@@ -2,6 +2,7 @@ import About from "@/components/landing/About";
 import Formations from "@/components/landing/Formations";
 import Hero from "@/components/landing/Hero";
 import Navbar from "@/components/landing/Navbar";
+import WhyChooseUs from "@/components/landing/WhyChooseUs";
 import Image from "next/image";
 
 export default function Home() {
@@ -10,11 +11,11 @@ export default function Home() {
       <Navbar />
       <Hero />
       <About />
-       <Formations />
+      <Formations />
 
-      {/*<WhyChooseUs />
+      <WhyChooseUs />
 
-      <Pricing />
+      {/*<Pricing />
 
       <FAQ />
 
