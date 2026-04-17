@@ -1,5 +1,7 @@
 import About from "@/components/landing/About";
+import CTA from "@/components/landing/CTA";
 import FAQ from "@/components/landing/FAQ";
+import Footer from "@/components/landing/Footer";
 import Formations from "@/components/landing/Formations";
 import Hero from "@/components/landing/Hero";
 import Navbar from "@/components/landing/Navbar";
@@ -16,11 +18,8 @@ export default function Home() {
       <Formations />
       <WhyChooseUs />
       <Pricing />
-
       <FAQ />
-
       <CTA />
-
       <Footer />
     </main>
   );
