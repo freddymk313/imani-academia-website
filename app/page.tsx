@@ -1,4 +1,5 @@
 import About from "@/components/landing/About";
+import FAQ from "@/components/landing/FAQ";
 import Formations from "@/components/landing/Formations";
 import Hero from "@/components/landing/Hero";
 import Navbar from "@/components/landing/Navbar";
@@ -16,11 +17,11 @@ export default function Home() {
       <WhyChooseUs />
       <Pricing />
 
-      {/*<FAQ />
+      <FAQ />
 
       <CTA />
 
-      <Footer /> */}
+      <Footer />
     </main>
   );
 }
