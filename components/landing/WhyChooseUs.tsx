@@ -55,13 +55,15 @@ export default function WhyChooseUs() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
               whileHover={{ y: -8 }}
-              className="bg-surface-container-lowest p-8 rounded-4xl signature-shadow transition-all duration-300 group border border-transparent hover:border-primary/10"
+              className="bg-surface-container-lowest p-8 rounded-4xl signature-shadow transition-all duration-300 group hover:border-primary/10"
             >
-              <div className="mb-6 flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/5 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                <span className="material-symbols-outlined text-4xl">
+              {/* <div className="mb-6 flex items-center justify-center *w-16 h-16 rounded-2xl bg-primary/5 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300"> */}
+                {/* <span className="material-symbols-outlined text-4xl"> */}
+
+                    <span className="material-symbols-outlined text-4xl text-primary mb-6">
                   {feature.icon}
                 </span>
-              </div>
+              {/* </div> */}
               
               <h4 className="text-xl font-bold mb-3 text-on-surface">
                 {feature.title}
