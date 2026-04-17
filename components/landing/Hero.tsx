@@ -34,13 +34,13 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-3 pt-2">
               <Link
                 href="#tarifs"
-                className="bg-primary text-white px-8 py-3 rounded-full font-bold text-sm transition-all duration-200 text-center"
+                className="bg-primary text-white px-8 py-3.5 rounded-full font-bold text-sm transition-all duration-200 text-center"
               >
                 Commencer maintenant
               </Link>
               <Link
                 href="#formations"
-                className="flex items-center justify-center gap-2.5 bg-[#f6f3f2] text-[#1c1b1b] px-8 py-3 rounded-full font-semibold text-sm hover:bg-[#eae7e7] transition-colors"
+                className="flex items-center justify-center gap-2.5 bg-muted text-[#1c1b1b] px-8 py-3.5 rounded-full font-semibold text-sm hover:bg-[#eae7e7] transition-colors"
               >
                 <Play className="w-4 h-4 text-[#00609a] fill-[#00609a]" />
                 Découvrir les formations
