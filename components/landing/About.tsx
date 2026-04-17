@@ -1,4 +1,4 @@
-import { CircleCheck as CheckCircle2 } from 'lucide-react';
+import { Check, CircleCheck as CheckCircle2 } from 'lucide-react';
 
 const highlights = [
   'Experts certifiés et pédagogues passionnés',
@@ -45,9 +45,9 @@ export default function About() {
 
             <ul className="space-y-3.5 pt-2">
               {highlights.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  {/* <CheckCircle2 className="w-5 h-5 text-[#00609a] flex-shrink-0 mt-0.5" /> */}
-                  <span className="material-symbols-outlined text-primary">check_circle</span>
+                <li key={item} className="flex items-center gap-3 text-on-surface font-medium">
+                  <Check className="w-5 h-5 text-[#00609a] flex-shrink-0 mt-0.5" />
+                  {/* <span classN="material-symbols-outlined text-primary">check_circle</span> */}
                   <span className="text-[#1c1b1b] font-medium text-sm sm:text-base">{item}</span>
                 </li>
               ))}
