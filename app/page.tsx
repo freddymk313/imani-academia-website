@@ -1,3 +1,4 @@
+import About from "@/components/landing/About";
 import Hero from "@/components/landing/Hero";
 import Navbar from "@/components/landing/Navbar";
 import Image from "next/image";
@@ -7,10 +8,9 @@ export default function Home() {
     <main className="min-h-screen">
       <Navbar />
       <Hero />
+      <About />
 
-      {/* <About />
-
-      <Formations />
+      {/* <Formations />
 
       <WhyChooseUs />
 
