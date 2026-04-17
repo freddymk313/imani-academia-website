@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -29,9 +30,17 @@ export default function Footer() {
       <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 px-8 md:px-12 py-20 max-w-7xl mx-auto font-sans text-sm leading-relaxed text-white">
         {/* LOGO & DESCRIPTION */}
         <div className="space-y-6">
-          <span className="text-2xl font-black tracking-tighter text-white">
-            Imani<span className="opacity-50">.</span>Academia
-          </span>
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <Image
+              src="/logo/logo-black-bg.png"
+              alt="Imani Academia"
+              width={180}
+              height={80}
+              priority
+              className="h-12 md:h-14 -ml-2.5 w-auto object-contain md:mb-2"
+            />
+          </Link>
+
           <p className="text-white/70 max-w-xs leading-relaxed">
             L'excellence académique pour forger les leaders de demain.
             Excellence, Innovation, Succès.
