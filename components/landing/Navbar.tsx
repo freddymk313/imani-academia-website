@@ -1,16 +1,17 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, GraduationCap, Globe, LayoutDashboard } from 'lucide-react';
+import { useState, useEffect } from "react";
+import { Menu, X, GraduationCap } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
 
 const navLinks = [
-  { label: 'Accueil', href: '#' },
-  { label: 'Formations', href: '#formations' },
-  { label: 'À propos', href: '#about' },
-  { label: 'Tarifs', href: '#tarifs' },
-  { label: 'FAQ', href: '#faq' },
-  { label: 'Contact', href: '#contact' },
+  { label: "Accueil", href: "#" },
+  { label: "Formations", href: "#formations" },
+  { label: "À propos", href: "#about" },
+  { label: "Tarifs", href: "#tarifs" },
+  { label: "FAQ", href: "#faq" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
@@ -19,123 +20,104 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleLinkClick = () => setIsMenuOpen(false);
+
   return (
-    <motion.nav
-      initial={{ y: -20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
-        isScrolled 
-          ? 'py-3 bg-surface-lowest/80 backdrop-blur-xl shadow-signature-blue border-b border-border' 
-          : 'py-6 bg-transparent'
+    <nav
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        isScrolled ? "glass-nav shadow-sm" : "bg-transparent"
       }`}
     >
-      <div className="max-w-screen-2xl mx-auto px-6 lg:px-12">
-        <div className="flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8">
+        <div className="flex items-center justify-between h-18 py-4">
+          <Link href="/" className="flex items-center gap-2.5 group">
+            Logo
+            <Image
+              src="/logo/logo-white.png"
+              alt="Imani Academia"
+              width={180}
+              height={50}
+              priority
+              className="h-10 w-auto object-contain"
+            />
+          </Link>
 
-          {/* LOGO - Utilisation de deep-core pour l'autorité */}
-          <a href="#" className="flex items-center gap-3 group">
-            <div className="relative">
-              <div className="w-11 h-11 rounded-xl flex items-center justify-center editorial-gradient signature-shadow transition-transform group-hover:scale-105">
-                <GraduationCap className="w-6 h-6 text-white" />
-              </div>
-              <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-background rounded-full flex items-center justify-center">
-                <div className="w-2 h-2 bg-primary-container rounded-full animate-pulse" />
-              </div>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-xl font-black tracking-tighter text-deep-core leading-none uppercase">
-                Imani Academia
-              </span>
-              <span className="text-[10px] font-bold tracking-[0.2em] text-primary uppercase mt-1 opacity-80">
-                English & IT Excellence
-              </span>
-            </div>
-          </a>
-
-          {/* NAV CENTRALE - Style Étiquette sur Surface Low */}
-          <div className="hidden lg:flex items-center bg-surface-low/50 p-1 rounded-full border border-border/10">
+          <div className="hidden md:flex items-center gap-7">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
-                className="px-6 py-2.5 text-[11px] font-black uppercase tracking-widest text-on-surface-variant hover:text-primary transition-all duration-300 rounded-full hover:bg-surface-lowest hover:shadow-sm"
+                className="text-[#404751] hover:text-primary *text-sm font-medium transition-colors duration-200 relative group"
               >
                 {link.label}
-              </a>
+                {/* <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-[#00609a] rounded-full transition-all duration-300 group-hover:w-full" /> */}
+              </Link>
             ))}
           </div>
 
-          {/* ACTIONS - Premium CTA */}
-          <div className="hidden lg:flex items-center gap-4">
-            <div className="flex items-center gap-1 px-4 py-2 rounded-full hover:bg-surface-low transition-colors cursor-pointer group">
-              <Globe className="w-4 h-4 text-on-surface-variant group-hover:text-primary" />
-              <span className="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant group-hover:text-primary">FR/EN</span>
-            </div>
+          <div className="hidden md:flex items-center gap-3">
+            <button className="bg-muted text-[#404751] text-sm font-medium px-3 py-2 rounded-full hover:bg-[#f6f3f2] transition-colors">
+              FR / EN
+            </button>
 
-            <a
-              href="/dashboard"
-              className="p-2.5 text-on-surface-variant hover:text-primary transition-colors"
-              title="Dashboard"
-            >
-              <LayoutDashboard size={20} />
-            </a>
-
-            <a
+            <Link
               href="/register"
-              className="editorial-gradient text-white px-8 py-3.5 rounded-full text-[12px] font-black uppercase tracking-[0.15em] transition-all hover:brightness-110 active:scale-95 signature-shadow"
+              className="bg-primary text-white px-6 py-3 rounded-full text-sm font-semibold hover:brightness-105 active:scale-95 transition-all duration-200 signature-shadow"
             >
-              S'inscrire
-            </a>
+              S&apos;inscrire
+            </Link>
           </div>
 
-          {/* MOBILE TOGGLE */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-3 rounded-2xl bg-surface-low text-deep-core transition-transform active:scale-90 shadow-sm"
+            className="md:hidden p-2 rounded-xl text-[#1c1b1b] hover:bg-[#f6f3f2] transition-colors"
+            aria-label="Toggle menu"
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMenuOpen ? (
+              <X className="w-5 h-5" />
+            ) : (
+              <Menu className="w-5 h-5" />
+            )}
           </button>
         </div>
       </div>
 
-      {/* MENU MOBILE - Glassmorphism */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="lg:hidden absolute top-full left-0 w-full bg-surface-lowest border-t border-border shadow-2xl overflow-hidden"
-          >
-            <div className="p-8 flex flex-col gap-6">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="text-2xl font-black text-deep-core hover:text-primary transition-colors flex items-center justify-between group"
-                >
-                  {link.label}
-                  <span className="w-2 h-2 rounded-full bg-primary scale-0 group-hover:scale-100 transition-transform" />
-                </a>
-              ))}
-
-              <div className="pt-6 border-t border-border flex flex-col gap-4">
-                <button className="w-full py-5 text-center font-black uppercase tracking-widest text-on-surface-variant bg-surface-low rounded-2xl transition-all active:scale-[0.98]">
-                  Espace Apprenant
-                </button>
-                <button className="w-full py-5 text-center font-black uppercase tracking-widest text-white editorial-gradient rounded-2xl shadow-signature-blue transition-all active:scale-[0.98]">
-                  S'inscrire Maintenant
-                </button>
-              </div>
+      {isMenuOpen && (
+        <div className="md:hidden glass-nav border-t border-[#c0c7d2]/30 animate-fade-in">
+          <div className="max-w-7xl mx-auto px-5 py-4 flex flex-col gap-1">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={handleLinkClick}
+                className="text-[#1c1b1b] font-medium py-3 px-4 rounded-xl hover:bg-[#f6f3f2] transition-colors text-base"
+              >
+                {link.label}
+              </a>
+            ))}
+            <div className="pt-3 pb-2 flex flex-col gap-2">
+              <a
+                href="/dashboard"
+                onClick={handleLinkClick}
+                className="text-[#404751] font-medium py-3 px-4 rounded-xl hover:bg-[#f6f3f2] transition-colors text-base text-center"
+              >
+                Dashboard
+              </a>
+              <a
+                href="/register"
+                onClick={handleLinkClick}
+                className="editorial-gradient text-white py-3.5 rounded-full text-base font-semibold text-center hover:brightness-105 transition-all"
+              >
+                S&apos;inscrire maintenant
+              </a>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.nav>
+          </div>
+        </div>
+      )}
+    </nav>
   );
 }
