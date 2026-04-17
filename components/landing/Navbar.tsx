@@ -28,13 +28,24 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 py-2 transition-all duration-300 ${
+      className={`fixed top-0 w-full z-50 py-1 md:py-2 transition-all duration-300 ${
         isScrolled ? "bg-background shadow-sm" : "bg-background"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
-        <div className="flex items-center justify-between h-18 py-4">
-          <Link href="/" className="flex items-center gap-2.5 group">
+        <div className="flex md:hidden items-center justify-between h-18 py-4">
+          <Link href="/" className="md:hidden flex items-center gap-2.5 group">
+            <Image
+              src="/logo/logo-mobile.png"
+              alt="Imani Academia"
+              width={180}
+              height={50}
+              priority
+              className="h-10 w-auto object-contain"
+            />
+          </Link>
+
+          <Link href="/" className="hidden md:flex items-center gap-2.5 group">
             <Image
               src="/logo/logo-white.png"
               alt="Imani Academia"
@@ -58,35 +69,37 @@ export default function Navbar() {
             ))}
           </div>
 
-          <div className="hidden md:flex items-center gap-3">
-            <button className="bg-muted text-[#404751] text-sm font-medium px-3 py-2 rounded-full hover:bg-[#f6f3f2] transition-colors">
-              FR / EN
-            </button>
+          <div className="flex items-center">
+            <div className="md:flex items-center gap-3">
+              <button className="hidden md:flex bg-muted text-[#404751] text-sm font-medium px-3 py-2 rounded-full hover:bg-[#f6f3f2] transition-colors">
+                FR / EN
+              </button>
 
-            <Link
-              href="/register"
-              className="bg-primary text-white px-6 py-3 rounded-full text-sm font-semibold hover:brightness-105 active:scale-95 transition-all duration-200 signature-shadow"
+              <Link
+                href="/register"
+                className="bg-primary text-white px-6 py-3 rounded-full text-sm font-semibold hover:brightness-105 active:scale-95 transition-all duration-200 signature-shadow"
+              >
+                S&apos;inscrire
+              </Link>
+            </div>
+
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden p-2 rounded-xl text-[#1c1b1b] hover:bg-[#f6f3f2] transition-colors"
+              aria-label="Toggle menu"
             >
-              S&apos;inscrire
-            </Link>
+              {isMenuOpen ? (
+                <X className="w-5 h-5" />
+              ) : (
+                <Menu className="w-5 h-5" />
+              )}
+            </button>
           </div>
-
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-xl text-[#1c1b1b] hover:bg-[#f6f3f2] transition-colors"
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? (
-              <X className="w-5 h-5" />
-            ) : (
-              <Menu className="w-5 h-5" />
-            )}
-          </button>
         </div>
       </div>
 
       {isMenuOpen && (
-        <div className="md:hidden glass-nav border-t border-[#c0c7d2]/30 animate-fade-in">
+        <div className="md:hidden glass-nav *border-t border-[#c0c7d2]/30 animate-fade-in">
           <div className="max-w-7xl mx-auto px-5 py-4 flex flex-col gap-1">
             {navLinks.map((link) => (
               <a
